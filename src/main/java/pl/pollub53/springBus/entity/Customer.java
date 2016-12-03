@@ -1,4 +1,4 @@
-package entity;
+package pl.pollub53.springBus.entity;
 
 import javax.persistence.*;
 
