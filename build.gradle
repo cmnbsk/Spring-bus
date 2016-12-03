@@ -3,9 +3,7 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     repositories {
-        jcenter()
-        maven { url "http://repo.spring.io/snapshot" }
-        maven { url "http://repo.spring.io/milestone" }
+        mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
@@ -17,12 +15,13 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 jar {
-    baseName = 'spring-bus'
+    baseName = 'gs-spring-boot'
     version =  '0.1.0'
 }
 
 repositories {
     jcenter()
+    maven { url "https://repository.jboss.org/nexus/content/repositories/releases" }
     maven { url "http://repo.spring.io/snapshot" }
     maven { url "http://repo.spring.io/milestone" }
 }
@@ -32,22 +31,20 @@ targetCompatibility = 1.8
 
 dependencies {
 
-//     tag::jetty[]
+    // tag::jetty[]
     compile("org.springframework.boot:spring-boot-starter-web") {
         //exclude module: "spring-boot-starter-tomcat"
     }
-//    compile("org.springframework.boot:spring-boot-starter-jetty")
-//     end::jetty[]
-
-//     tag::actuator[]
+    //compile("org.springframework.boot:spring-boot-starter-jetty")
+    // end::jetty[]
+    // tag::actuator[]
     compile("org.springframework.boot:spring-boot-starter-actuator")
-//     end::actuator[]
-
-//    spring data JPA with Hibernate
-//    compile("org.springframework.boot:spring-boot-starter-data-jpa") - to odkomentować żeby korzystać z hibernate
-
+    // end::actuator[]
+    //h2
+    compile("com.h2database:h2")//
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")//
     testCompile("org.springframework.boot:spring-boot-starter-test")
-//    testCompile("org.springframework.boot:spring-boot-test")
+    //testCompile("org.springframework.boot:spring-boot-test")
     testCompile("junit:junit")
 
 }
