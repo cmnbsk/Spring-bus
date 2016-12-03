@@ -3,7 +3,7 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
@@ -20,7 +20,7 @@ jar {
 }
 
 repositories {
-    mavenCentral()
+   jcenter()
 }
 
 sourceCompatibility = 1.8
@@ -28,17 +28,22 @@ targetCompatibility = 1.8
 
 dependencies {
 
-    // tag::jetty[]
+//     tag::jetty[]
     compile("org.springframework.boot:spring-boot-starter-web") {
-        exclude module: "spring-boot-starter-tomcat"
+        //exclude module: "spring-boot-starter-tomcat"
     }
-    compile("org.springframework.boot:spring-boot-starter-jetty")
-    // end::jetty[]
-    // tag::actuator[]
+//    compile("org.springframework.boot:spring-boot-starter-jetty")
+//     end::jetty[]
+
+//     tag::actuator[]
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    // end::actuator[]
+//     end::actuator[]
+
+//    spring data JPA with Hibernate
+//    testCompile("org.springframework.boot:spring-boot-starter-data-jpa")
+
     testCompile("org.springframework.boot:spring-boot-starter-test")
-    testCompile("org.springframework.boot:spring-boot-test")
+//    testCompile("org.springframework.boot:spring-boot-test")
     testCompile("junit:junit")
 
 }
