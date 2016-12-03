@@ -1,4 +1,4 @@
-package hello;
+package pl.pollub53;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,7 +8,7 @@ public class HelloController {
 
     @RequestMapping("/")
     public String index() {
-        return "Pozdrowienia ze springBoota!!";
+        return "Pozdrowienia ze springBoota!!!";
     }
 
 }
