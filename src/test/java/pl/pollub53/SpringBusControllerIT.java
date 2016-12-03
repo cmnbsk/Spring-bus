@@ -17,7 +17,7 @@ package pl.pollub53;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class HelloControllerIT {
+public class SpringBusControllerIT {
 
     @LocalServerPort
     private int port;

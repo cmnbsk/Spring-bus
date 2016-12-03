@@ -4,6 +4,8 @@ version '1.0-SNAPSHOT'
 buildscript {
     repositories {
         jcenter()
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
@@ -15,12 +17,14 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 jar {
-    baseName = 'gs-spring-boot'
+    baseName = 'spring-bus'
     version =  '0.1.0'
 }
 
 repositories {
-   jcenter()
+    jcenter()
+    maven { url "http://repo.spring.io/snapshot" }
+    maven { url "http://repo.spring.io/milestone" }
 }
 
 sourceCompatibility = 1.8
@@ -40,7 +44,7 @@ dependencies {
 //     end::actuator[]
 
 //    spring data JPA with Hibernate
-//    testCompile("org.springframework.boot:spring-boot-starter-data-jpa")
+//    compile("org.springframework.boot:spring-boot-starter-data-jpa") - to odkomentować żeby korzystać z hibernate
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
 //    testCompile("org.springframework.boot:spring-boot-test")
