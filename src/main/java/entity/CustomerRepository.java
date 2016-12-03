@@ -1,7 +1,8 @@
-package entity;
+/* package entity;
 
-/**
- * Created by Daimao on 03.12.2016.
- */
-public class CustomerRepository {
+import java.util.List;
+import org.springframework.*;
+public interface CustomerRepository extends CrudRepository<Customer, Long> {
+    List<Customer> findByLastName(String lastName);//do wyszukiwania po nazwisku
 }
+*/
