@@ -1,4 +1,4 @@
-package pl.pollub53;
+package pl.pollub53.springBus;
 
         import static org.hamcrest.Matchers.equalTo;
         import static org.junit.Assert.assertThat;
