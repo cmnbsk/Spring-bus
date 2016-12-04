@@ -11,9 +11,9 @@ public class SpringBusController {
         return "Pozdrowienia od springBoota!";
     }
 
-    @RequestMapping("/tk")
+    @RequestMapping("/tajne-drzwi")
     public String tk() {
-        return "Pozdrowienia od tk!";
+        return "Gratulacje! Znalazłeś pierwsze jajo wielkanocne.";
     }
 
 }
