@@ -5,17 +5,18 @@ import javax.persistence.*;
 @Entity
 public class Customer {
     @Id
+    @Column(name = "customer_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "lastName",nullable = false, length = 45)
+    @Column(name = "customer_last_name", nullable = false, length = 45)
     private String lastName;
-    @Column(name = "firstName",nullable = false, length = 45)
+    @Column(name = "customer_first_name", nullable = false, length = 45)
     private String firstName;
-    @Column(name = "pesel",nullable = false, length = 11)
+    @Column(name = "customer_pesel", nullable = false, length = 11)
     private String pesel;
-    @Column(name = "email", length = 45)
+    @Column(name = "customer_email", length = 45)
     private String email;
-    @Column(name = "phone",nullable = false, length = 9)
+    @Column(name = "customer_phone", nullable = false, length = 9)
     private long phone;
 
     protected Customer() {
