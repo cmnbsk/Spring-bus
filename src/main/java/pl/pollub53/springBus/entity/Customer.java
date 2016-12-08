@@ -1,6 +1,7 @@
 package pl.pollub53.springBus.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -17,12 +18,15 @@ public class Customer {
     @Column(name = "customer_email", length = 45)
     private String email;
     @Column(name = "customer_phone", nullable = false, length = 9)
-    private long phone;
+    private String phone;
+
+    @ManyToMany
+    private List<Course> courses;
 
     protected Customer() {
     }
 
-    public Customer(String lastName, String firstName, String pesel, String email, long phone) {
+    public Customer(String lastName, String firstName, String pesel, String email, String phone) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.pesel = pesel;
@@ -78,11 +82,11 @@ public class Customer {
         this.email = email;
     }
 
-    public long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(long phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 }

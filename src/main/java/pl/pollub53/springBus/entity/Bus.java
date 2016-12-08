@@ -1,21 +1,41 @@
 package pl.pollub53.springBus.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Bus {
     @Id
     @Column(name = "bus_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO) //id jest generowane automatycznie
     private long id;
-    @Column(name = "bus_places",nullable = false, length = 4)
+    @Column(name = "bus_registration", nullable = false, length = 10)
+    private long registration;
+    @Column(name = "bus_places", nullable = false, length = 4)
     private int places;
-    @Column(name = "bus_is_available",nullable = false)
+    @Column(name = "bus_is_available", nullable = false)
     private boolean isAvailable;
 
-    protected Bus(){}
+    //jeden autobus może mieć wiele kursów
+    @OneToMany(mappedBy = "bus")
+    private List<Course> courses;
 
-    public Bus(int places, boolean isAvailable) {
+    //wiele autobusów może mieć wiele przystanków
+    @ManyToMany(mappedBy = "buses")
+    @JoinTable(name = "stations_in_buses", joinColumns = {@JoinColumn(name = "bus_id")},
+            inverseJoinColumns = {@JoinColumn(name = "station_id")})
+    private List<Station> stations;
+
+    //wiele autobusów może mieć jednego przewoźnika
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
+
+    protected Bus() {
+    }
+
+    public Bus(long registration, int places, boolean isAvailable) {
+        this.registration = registration;
         this.places = places;
         this.isAvailable = isAvailable;
     }

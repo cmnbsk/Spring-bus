@@ -1,6 +1,7 @@
 package pl.pollub53.springBus.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Station {
@@ -10,6 +11,9 @@ public class Station {
     private long id;
     @Column(name = "station_name", nullable = false,length =45 )
     private String name;
+
+    @ManyToMany
+    private List<Bus> buses;
 
     protected Station(){}
 
