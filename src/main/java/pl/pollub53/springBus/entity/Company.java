@@ -1,6 +1,7 @@
 package pl.pollub53.springBus.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 //Company=przewoźnik
 @Entity
@@ -16,12 +17,20 @@ public class Company {
     @Column(name = "company_website", length = 30)
     private String website;
     @Column(name = "company_phone", nullable = false, length = 9)
-    private long phone;
+    private String phone;
+
+    //jedna firma może mieć wiele autobusów
+    @OneToMany(mappedBy = "company")
+    private List<Bus> buses;
+
+    //jedna firma może mieć wiele kursów
+    @OneToMany(mappedBy = "company")
+    private List<Course> courses;
 
     protected Company() {
     }
 
-    public Company(long name, String email, String website, long phone) {
+    public Company(long name, String email, String website, String phone) {
         this.name = name;
         this.email = email;
         this.website = website;
@@ -56,11 +65,11 @@ public class Company {
         this.website = website;
     }
 
-    public long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(long phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

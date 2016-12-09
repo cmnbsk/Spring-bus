@@ -1,4 +1,4 @@
- /* package pl.pollub53.springBus.entity;
+package pl.pollub53.springBus.entity;
 
  import org.springframework.data.repository.CrudRepository;
 
@@ -8,4 +8,3 @@
     List<Customer> findByLastName(String lastName);//do wyszukiwania po nazwisku
 }
 
-*/
