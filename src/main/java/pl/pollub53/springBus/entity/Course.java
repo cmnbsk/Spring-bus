@@ -26,7 +26,7 @@ public class Course {
     private Bus bus;
 
     //wiele kursów może mieć wiele klientów (czyli 1 klient może mieć wiele kursów i 1 kurs może mieć wiele klientów)
-    @ManyToMany(mappedBy = "courses")
+    @ManyToMany
     @JoinTable(name = "customers_in_courses", joinColumns = {@JoinColumn(name = "course_id")},
             inverseJoinColumns = {@JoinColumn(name = "customer_id")})
     private List<Customer> customers;

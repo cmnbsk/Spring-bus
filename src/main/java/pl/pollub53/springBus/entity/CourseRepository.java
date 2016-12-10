@@ -1,6 +1,7 @@
 package pl.pollub53.springBus.entity;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CourseRepository extends CrudRepository<Course, Long> {
+public interface CourseRepository extends JpaRepository<Course, Long> {
+
 }

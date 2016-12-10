@@ -1,6 +1,7 @@
 package pl.pollub53.springBus.entity;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface BusRepository extends CrudRepository<Bus, Long> {
+//proszę sobie kliknąć z Ctrl na JpaRepository --> tam są fajne metody które można wykorzystać w innych klasach
+public interface BusRepository extends JpaRepository<Bus, Long> {
 }
