@@ -20,7 +20,7 @@ public class Customer {
     @Column(name = "customer_phone", nullable = false, length = 9)
     private String phone;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "customers")
     private List<Course> courses;
 
     protected Customer() {

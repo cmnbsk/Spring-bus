@@ -21,7 +21,7 @@ public class Bus {
     private List<Course> courses;
 
     //wiele autobusów może mieć wiele przystanków
-    @ManyToMany(mappedBy = "buses")
+    @ManyToMany
     @JoinTable(name = "stations_in_buses", joinColumns = {@JoinColumn(name = "bus_id")},
             inverseJoinColumns = {@JoinColumn(name = "station_id")})
     private List<Station> stations;

@@ -12,7 +12,7 @@ public class Station {
     @Column(name = "station_name", nullable = false,length =45 )
     private String name;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "stations")
     private List<Bus> buses;
 
     protected Station(){}
