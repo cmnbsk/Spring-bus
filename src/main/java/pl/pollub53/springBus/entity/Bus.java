@@ -3,6 +3,7 @@ package pl.pollub53.springBus.entity;
 import javax.persistence.*;
 import java.util.List;
 
+
 @Entity
 public class Bus {
     @Id
@@ -10,7 +11,7 @@ public class Bus {
     @GeneratedValue(strategy = GenerationType.AUTO) //id jest generowane automatycznie
     private long id;
     @Column(name = "bus_registration", nullable = false, length = 10)
-    private long registration;
+    private String registration;
     @Column(name = "bus_places", nullable = false, length = 4)
     private int places;
     @Column(name = "bus_is_available", nullable = false)
@@ -34,7 +35,7 @@ public class Bus {
     protected Bus() {
     }
 
-    public Bus(long registration, int places, boolean isAvailable) {
+    public Bus(String registration, int places, boolean isAvailable) {
         this.registration = registration;
         this.places = places;
         this.isAvailable = isAvailable;
@@ -58,6 +59,14 @@ public class Bus {
 
     public void setAvailable(boolean available) {
         isAvailable = available;
+    }
+
+    public String getRegistration() {
+        return registration;
+    }
+
+    public void setRegistration(String registration) {
+        this.registration = registration;
     }
 
     @Override

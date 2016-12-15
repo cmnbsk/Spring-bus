@@ -25,6 +25,7 @@ public class Course {
     @JoinColumn(name = "bus_id")
     private Bus bus;
 
+
     //wiele kursów może mieć wiele klientów (czyli 1 klient może mieć wiele kursów i 1 kurs może mieć wiele klientów)
     @ManyToMany
     @JoinTable(name = "customers_in_courses", joinColumns = {@JoinColumn(name = "course_id")},
