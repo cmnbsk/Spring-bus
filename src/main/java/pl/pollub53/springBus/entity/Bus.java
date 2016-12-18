@@ -32,14 +32,6 @@ public class Bus {
     @JoinColumn(name = "company_id")
     private Company company;
 
-    protected Bus() {
-    }
-
-    public Bus(String registration, int places, boolean isAvailable) {
-        this.registration = registration;
-        this.places = places;
-        this.isAvailable = isAvailable;
-    }
 
     public long getId() {
         return id;
@@ -77,4 +69,6 @@ public class Bus {
                 ", isAvailable=" + isAvailable +
                 '}';
     }
+
+
 }

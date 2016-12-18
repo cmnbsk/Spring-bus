@@ -37,15 +37,6 @@ public class Course {
     @JoinColumn(name = "company_id")
     private Company company;
 
-    protected Course() {
-    }
-
-    public Course(float price, String track, Date date, Time time) {
-        this.price = price;
-        this.track = track;
-        this.date = date;
-        this.time = time;
-    }
 
     public long getId() {
         return id;
