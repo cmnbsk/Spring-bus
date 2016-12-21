@@ -13,7 +13,7 @@ public class Bus {
     @Column(name = "bus_registration_number", nullable = false, length = 10)
     private String registration_number;
     @Column(name = "bus_seats", nullable = false, length = 4)
-    private int seats;
+    private int free_seats;
     @Column(name = "bus_is_available", nullable = false)
     private boolean available;
 
@@ -38,12 +38,12 @@ public class Bus {
         return id;
     }
 
-    public int getSeats() {
-        return seats;
+    public int getFree_seats() {
+        return free_seats;
     }
 
-    public void setSeats(int seats) {
-        this.seats = seats;
+    public void setFree_Seats(int free_seats) {
+        this.free_seats = free_seats;
     }
 
     public boolean isAvailable() {
@@ -68,7 +68,7 @@ public class Bus {
         return "Bus{" +
                 " = " + id +
                 ", registration number = " + registration_number +
-                ", seats = " + seats +
+                ", seats = " + free_seats +
                 ", isAvailable = " + available +
                 '}';
     }

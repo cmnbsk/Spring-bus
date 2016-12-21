@@ -27,7 +27,7 @@ public class BusController {
     public String list(Model model) {
 
         //wykorzystuję metodę getBuses() z repozytorium
-        model.addAttribute("buses", busService.getBuses());
+        model.addAttribute("bus", busService.getBuses());
         return "bus/buses";
     }
 
