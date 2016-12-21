@@ -9,7 +9,24 @@
           rel="stylesheet" media="screen" />
 </head>
 <body>
-    <p>Wszystkie autobusy: </p>
-    <p th:text="${bus}"></p>
+<div class="containter">
+    <div th:if="${not #lists.isEmpty(buses)}">
+        <h2>Lista autobusów</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Nr rejestracyjny</th>
+                <th>czy dostępny</th>
+                <th>wolne miejsca</th>
+            </tr>
+            <tr th:each="bus : ${buses}">
+                <td th:text="${bus.id}"><a href="/bus/${bus.id}">ID</a></td>
+                <td th:text="${bus.registration_number}">Nr rejestracyjny</td>
+                <td th:text="${bus.available}">czy dostępny</td>
+                <td th:text="${bus.seats}">wolne miejsca</td>
+            </tr>
+        </table>
+    </div>
+</div>
 </body>
 </html>

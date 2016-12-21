@@ -23,11 +23,11 @@ public class BusController {
     /*na stronie /buses ma wyświetlić się lista autobusów
 
       metoda get - do pobierania danych z serwera */
-    @RequestMapping(value = "bus", method = RequestMethod.GET)
+    @RequestMapping(value = "/bus/list", method = RequestMethod.GET)
     public String list(Model model) {
 
         //wykorzystuję metodę getBuses() z repozytorium
-        model.addAttribute("bus", busService.getBuses());
+        model.addAttribute("buses", busService.getBuses());
         return "bus/buses";
     }
 

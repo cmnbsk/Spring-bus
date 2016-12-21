@@ -17,6 +17,7 @@ public class Bus {
     @Column(name = "bus_is_available", nullable = false)
     private boolean available;
 
+
     //jeden autobus może mieć wiele kursów
     @OneToMany(mappedBy = "bus")
     private List<Course> courses;
@@ -60,6 +61,7 @@ public class Bus {
     public void setRegistration_number(String registration_number) {
         this.registration_number = registration_number;
     }
+
 
     @Override
     public String toString() {
