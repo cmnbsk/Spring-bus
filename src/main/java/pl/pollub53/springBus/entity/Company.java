@@ -27,15 +27,6 @@ public class Company {
     @OneToMany(mappedBy = "company")
     private List<Course> courses;
 
-    protected Company() {
-    }
-
-    public Company(long name, String email, String website, String phone) {
-        this.name = name;
-        this.email = email;
-        this.website = website;
-        this.phone = phone;
-    }
 
     public long getId() {
         return id;

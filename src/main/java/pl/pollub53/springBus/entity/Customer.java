@@ -23,16 +23,6 @@ public class Customer {
     @ManyToMany(mappedBy = "customers")
     private List<Course> courses;
 
-    protected Customer() {
-    }
-
-    public Customer(String lastName, String firstName, String pesel, String email, String phone) {
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.pesel = pesel;
-        this.email = email;
-        this.phone = phone;
-    }
 
     @Override
     public String toString() {

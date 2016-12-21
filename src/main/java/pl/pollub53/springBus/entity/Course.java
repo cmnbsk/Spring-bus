@@ -25,6 +25,7 @@ public class Course {
     @JoinColumn(name = "bus_id")
     private Bus bus;
 
+
     //wiele kursów może mieć wiele klientów (czyli 1 klient może mieć wiele kursów i 1 kurs może mieć wiele klientów)
     @ManyToMany
     @JoinTable(name = "customers_in_courses", joinColumns = {@JoinColumn(name = "course_id")},
@@ -36,15 +37,6 @@ public class Course {
     @JoinColumn(name = "company_id")
     private Company company;
 
-    protected Course() {
-    }
-
-    public Course(float price, String track, Date date, Time time) {
-        this.price = price;
-        this.track = track;
-        this.date = date;
-        this.time = time;
-    }
 
     public long getId() {
         return id;

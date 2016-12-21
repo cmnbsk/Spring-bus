@@ -9,13 +9,14 @@ public class Station {
     @Column(name = "station_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(name = "station_name", nullable = false,length =45 )
+    @Column(name = "station_name", nullable = false, length = 45)
     private String name;
 
     @ManyToMany(mappedBy = "stations")
     private List<Bus> buses;
 
-    protected Station(){}
+    protected Station() {
+    }
 
     public Station(String name) {
         this.name = name;
