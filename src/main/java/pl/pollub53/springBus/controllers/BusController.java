@@ -12,6 +12,7 @@ import pl.pollub53.springBus.services.BusService;
 //żeby sprawdzić, czy kontroler działa, trzeba zrobić widok (html&JavaScript)
 
 @Controller
+@RequestMapping("/buses")
 public class BusController {
     private BusService busService;
 
@@ -23,45 +24,55 @@ public class BusController {
     /*na stronie /buses ma wyświetlić się lista autobusów
 
       metoda get - do pobierania danych z serwera */
-    @RequestMapping(value = "bus", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String list(Model model) {
 
         //wykorzystuję metodę getBuses() z repozytorium
-        model.addAttribute("bus", busService.getBuses());
-        return "bus/buses";
+        model.addAttribute("buses", busService.getBuses());
+
+        System.out.println("Zwrócono autobusy:");
+        return "buses";
     }
 
     //po przejściu do odnośnika z RequestMapping() wywoływana jest metoda
-    @RequestMapping("bus/{id}")
+    @RequestMapping("/{id}")
     public String showBus(@PathVariable long id, Model model) {
-        model.addAttribute("bus", busService.getBusById(id));
-        return "bus/busshow";
+        model.addAttribute("buses", busService.getBusById(id));
+        return "busshow";
     }
 
     //PathVariable jest to zmienna pobrana ze ścieżki HTTP
-    @RequestMapping("bus/edit/{id}")
+    @RequestMapping("/edit/{id}")
     public String edit(@PathVariable long id, Model model) {
-        model.addAttribute("bus", busService.getBusById(id));
-        return "bus/busform";
+        model.addAttribute("buses", busService.getBusById(id));
+        return "buses/busform";
     }
 
-    @RequestMapping("bus/new")
+    @RequestMapping("/new")
     public String newBus(Model model) {
-        model.addAttribute("bus", new Bus());
-        return "bus/busform";
+        model.addAttribute("buses", new Bus());
+       return "busform";
+        // return "buses/busform";
     }
-
-    @RequestMapping(value = "bus/save", method = RequestMethod.POST)
+/*
+    //POST używamy, gdy chcemy tworzyć, aktualizować i usuwać dane po stronie serwera
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveBus(Bus bus) {
         busService.saveBus(bus);
-        return "redirect:/bus/" + bus.getId();
+        return "redirect:/buses/save/" + bus.getId();
     }
+*/
 
-    //usuwanie autobusu - Głowy nie dam, czy to na pewno tak powinno być
-    @RequestMapping(value = "bus/delete/{id}")
+    @RequestMapping(value = "/buses", method = RequestMethod.POST)
+    public String saveBus(Bus bus) {
+        busService.saveBus(bus);
+        return "redirect:/buses/" + bus.getId();
+    }
+    ////////usuwanie autobusu - Głowy nie dam, czy to na pewno tak powinno być
+    @RequestMapping(value = "/delete/{id}")
     public String deleteBus(@PathVariable long id) {
         busService.deleteBus(id);
-        return "redirect:/bus/" + id;
+        return "redirect:/buses/delete";
     }
 
 }
