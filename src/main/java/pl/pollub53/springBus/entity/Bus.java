@@ -15,7 +15,7 @@ public class Bus {
     @Column(name = "bus_seats", nullable = false, length = 4)
     private int seats;
     @Column(name = "bus_is_available", nullable = false)
-    private boolean isAvailable;
+    private boolean available;
 
     //jeden autobus może mieć wiele kursów
     @OneToMany(mappedBy = "bus")
@@ -46,11 +46,11 @@ public class Bus {
     }
 
     public boolean isAvailable() {
-        return isAvailable;
+        return available;
     }
 
     public void setAvailable(boolean available) {
-        isAvailable = available;
+        this.available = available;
     }
 
     public String getRegistration_number() {
@@ -67,7 +67,7 @@ public class Bus {
                 " = " + id +
                 ", registration number = " + registration_number +
                 ", seats = " + seats +
-                ", isAvailable = " + isAvailable +
+                ", isAvailable = " + available +
                 '}';
     }
 
