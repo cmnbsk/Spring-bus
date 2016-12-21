@@ -10,7 +10,7 @@
 
 <body>
 <div>
-    <form class="form-horizontal" th:object="${buses}" th:action="@{/bus/save/}" method="post">
+    <form class="form-horizontal" th:object="${bus}" th:action="@{/bus/save/}" method="post">
         <input type="hidden" th:field="*{id}"/>
         <div class="form-group row">
             <label class="col-xs-2 control-label">Rejestracja:</label>
