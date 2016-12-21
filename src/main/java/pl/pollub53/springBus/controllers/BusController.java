@@ -34,20 +34,20 @@ public class BusController {
     //po przejściu do odnośnika z RequestMapping() wywoływana jest metoda
     @RequestMapping("bus/{id}")
     public String showBus(@PathVariable long id, Model model) {
-        model.addAttribute("buses", busService.getBusById(id));
+        model.addAttribute("bus", busService.getBusById(id));
         return "bus/busshow";
     }
 
     //PathVariable jest to zmienna pobrana ze ścieżki HTTP
     @RequestMapping("bus/edit/{id}")
     public String edit(@PathVariable long id, Model model) {
-        model.addAttribute("buses", busService.getBusById(id));
+        model.addAttribute("bus", busService.getBusById(id));
         return "bus/busform";
     }
 
     @RequestMapping("bus/new")
     public String newBus(Model model) {
-        model.addAttribute("buses", new Bus());
+        model.addAttribute("bus", new Bus());
         return "bus/busform";
     }
 
