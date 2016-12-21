@@ -53,11 +53,11 @@ public class Bus {
         isAvailable = available;
     }
 
-    public String getRegistrationNumber() {
+    public String getRegistration_number() {
         return registration_number;
     }
 
-    public void setRegistrationNumber(String registration_number) {
+    public void setRegistration_number(String registration_number) {
         this.registration_number = registration_number;
     }
 
