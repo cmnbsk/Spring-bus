@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.pollub53.springBus.entity.Bus;
 import pl.pollub53.springBus.repositories.BusRepository;
 
+import java.util.List;
+
 
 @Service
 public class BusServiceImpl implements BusService {
@@ -18,7 +20,7 @@ public class BusServiceImpl implements BusService {
 
     @Transactional(readOnly = true)
     @Override
-    public Iterable<Bus> getBuses() {
+    public List<Bus> getBuses() {
         return busRepository.findAll();
     }
 
