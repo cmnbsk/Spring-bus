@@ -35,7 +35,7 @@ public class BusController {
     @RequestMapping("bus/{id}")
     public String showBus(@PathVariable long id, Model model) {
         model.addAttribute("bus", busService.getBusById(id));
-        return "bus/busshow";
+        return "bus/busform";
     }
 
     //PathVariable jest to zmienna pobrana ze ścieżki HTTP

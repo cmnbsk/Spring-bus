@@ -42,7 +42,7 @@ public class Bus {
         return free_seats;
     }
 
-    public void setFree_Seats(int free_seats) {
+    public void setFree_seats(int free_seats) {
         this.free_seats = free_seats;
     }
 
@@ -66,10 +66,10 @@ public class Bus {
     @Override
     public String toString() {
         return "Bus{" +
-                " = " + id +
-                ", registration number = " + registration_number +
-                ", seats = " + free_seats +
-                ", isAvailable = " + available +
+                " id= " + id +
+                ", numer rejestracyjny = " + registration_number +
+                ", wolne miejsca = " + free_seats +
+                ", czy dostępny = " + available +
                 '}';
     }
 
