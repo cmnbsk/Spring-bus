@@ -12,7 +12,7 @@ public class Bus {
     private long id;
     @Column(name = "bus_registration_number", nullable = false, length = 10)
     private String registration_number;
-    @Column(name = "bus_seats", nullable = false, length = 4)
+    @Column(name = "bus_free_seats", nullable = false, length = 4)
     private int free_seats;
     @Column(name = "bus_is_available", nullable = false)
     private boolean available;

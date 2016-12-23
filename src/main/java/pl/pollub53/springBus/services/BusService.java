@@ -16,4 +16,7 @@ public interface BusService {
 
     //usuń autobus
     void deleteBus(long id);
+
+    //update autobus
+    Bus updateBus(Bus bus);
 }

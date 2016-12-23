@@ -42,7 +42,7 @@ public class BusController {
     @RequestMapping("bus/edit/{id}")
     public String edit(@PathVariable long id, Model model) {
         model.addAttribute("bus", busService.getBusById(id));
-        return "bus/busform";
+        return "bus/busformEdit";
     }
 
     @RequestMapping("bus/new")
@@ -62,6 +62,12 @@ public class BusController {
     public String deleteBus(@PathVariable long id) {
         busService.deleteBus(id);
         return "redirect:/bus/" + id;
+    }
+
+    @RequestMapping(value = "bus/update", method = RequestMethod.POST)
+    public String updateBus(Bus bus) {
+        busService.updateBus(bus);
+        return "redirect:/bus/" + bus.getId();
     }
 
 }
