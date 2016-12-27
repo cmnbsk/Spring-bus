@@ -9,7 +9,6 @@ import pl.pollub53.springBus.repositories.BusRepository;
 import javax.persistence.NoResultException;
 import java.util.List;
 
-
 @Service
 public class BusServiceImpl implements BusService {
     private BusRepository busRepository;
