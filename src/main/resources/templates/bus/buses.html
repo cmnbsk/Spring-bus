@@ -19,6 +19,7 @@
                 <th>Nr rejestracyjny</th>
                 <th>czy dostępny</th>
                 <th>wolne miejsca</th>
+                <th>udogodnienia</th>
             </tr>
             <tr th:each="key : ${bus}">
                 <td th:text="${key.id}"><a href="/bus/${bus.id}">ID</a></td>
@@ -28,6 +29,10 @@
                 <td th:text="${key.features}">udogodnienia</td>
             </tr>
         </table>
+    </div>
+    <div class="row">
+        <a href="/bus/list" th:href="@{/bus/new}" class="btn btn-default"
+           style="background-color: crimson; margin-left: 2%">Nowy</a>
     </div>
 </div>
 </body>
