@@ -6,8 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.pollub53.springBus.entity.Bus;
 import pl.pollub53.springBus.repositories.BusRepository;
 
+import javax.persistence.NoResultException;
 import java.util.List;
-
 
 @Service
 public class BusServiceImpl implements BusService {
@@ -36,10 +36,15 @@ public class BusServiceImpl implements BusService {
     }
 
     @Override
-    public void deleteBus(long id) {
-        busRepository.delete(id);
+    public void deleteBus(long id) { busRepository.delete(id); }
 
+    //update not used
+    @Override
+    public Bus updateBus(Bus bus) throws NoResultException{
+        Bus foundBus = busRepository.findOne(bus.getId());
+        if(foundBus == null){
+            throw new NoResultException("Cannot update bus. Bus doesn't exist");
+        }
+        return busRepository.save(bus);
     }
-
-
 }

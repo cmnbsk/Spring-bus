@@ -3,15 +3,14 @@ package pl.pollub53.springBus.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import pl.pollub53.springBus.entity.Bus;
 import pl.pollub53.springBus.services.BusService;
 
 //żeby sprawdzić, czy kontroler działa, trzeba zrobić widok (html&JavaScript)
 
 @Controller
+@SessionAttributes("bus")
 public class BusController {
     private BusService busService;
 
@@ -23,7 +22,7 @@ public class BusController {
     /*na stronie /buses ma wyświetlić się lista autobusów
 
       metoda get - do pobierania danych z serwera */
-    @RequestMapping(value = "/bus/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/bus/list", method = RequestMethod.GET) //get jest domyslnie
     public String list(Model model) {
 
         //wykorzystuję metodę getBuses() z repozytorium
@@ -41,7 +40,11 @@ public class BusController {
     //PathVariable jest to zmienna pobrana ze ścieżki HTTP
     @RequestMapping("bus/edit/{id}")
     public String edit(@PathVariable long id, Model model) {
-        model.addAttribute("bus", busService.getBusById(id));
+        Bus bus = busService.getBusById(id);
+        if(bus == null){
+            return "notExist";
+        }
+        model.addAttribute("bus", bus);
         return "bus/busform";
     }
 
@@ -51,17 +54,24 @@ public class BusController {
         return "bus/busform";
     }
 
-    @RequestMapping(value = "bus/save", method = RequestMethod.POST)
-    public String saveBus(Bus bus) {
+    //@RequestMapping(value = "bus/save", method = RequestMethod.POST)
+    @PostMapping(value = "bus/save")
+    public String saveBus(@ModelAttribute("bus") Bus bus) {
         busService.saveBus(bus);
         return "redirect:/bus/" + bus.getId();
     }
 
-    //usuwanie autobusu - Głowy nie dam, czy to na pewno tak powinno być
     @RequestMapping(value = "bus/delete/{id}")
     public String deleteBus(@PathVariable long id) {
         busService.deleteBus(id);
         return "redirect:/bus/" + id;
+    }
+
+    //tego nie używamy na razie
+    @PostMapping(value = "bus/update")
+    public String updateBus(@ModelAttribute("bus") Bus bus ) {
+        busService.updateBus(bus);
+        return "redirect:/bus/" + bus.getId();
     }
 
 }
