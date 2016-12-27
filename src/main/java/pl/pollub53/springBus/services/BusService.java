@@ -1,6 +1,6 @@
 package pl.pollub53.springBus.services;
 
-import pl.pollub53.springBus.entity.Bus;
+import pl.pollub53.springBus.domain.Bus;
 
 import java.util.List;
 

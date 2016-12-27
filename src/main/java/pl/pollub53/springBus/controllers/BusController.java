@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.pollub53.springBus.entity.Bus;
+import pl.pollub53.springBus.domain.Bus;
 import pl.pollub53.springBus.services.BusService;
 
 //żeby sprawdzić, czy kontroler działa, trzeba zrobić widok (html&JavaScript)
@@ -64,7 +64,7 @@ public class BusController {
     @RequestMapping(value = "bus/delete/{id}")
     public String deleteBus(@PathVariable long id) {
         busService.deleteBus(id);
-        return "redirect:/bus/" + id;
+        return "redirect:/bus/list";
     }
 
     //tego nie używamy na razie

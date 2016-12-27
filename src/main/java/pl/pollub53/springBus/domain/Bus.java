@@ -1,4 +1,4 @@
-package pl.pollub53.springBus.entity;
+package pl.pollub53.springBus.domain;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,6 +15,8 @@ public class Bus {
     private int free_seats;
     @Column(name = "bus_is_available", nullable = false)
     private boolean available;
+    @Column(name = "features")
+    private String features;
 
 
     //jeden autobus może mieć wiele kursów
@@ -61,6 +63,13 @@ public class Bus {
         this.registration_number = registration_number;
     }
 
+    public String getFeatures() {
+        return features;
+    }
+
+    public void setFeatures(String features) {
+        this.features = features;
+    }
 
     @Override
     public String toString() {
@@ -69,6 +78,7 @@ public class Bus {
                 ", numer rejestracyjny = " + registration_number +
                 ", wolne miejsca = " + free_seats +
                 ", czy dostępny = " + available +
+                ", udogodnienia = " + features +
                 '}';
     }
 
