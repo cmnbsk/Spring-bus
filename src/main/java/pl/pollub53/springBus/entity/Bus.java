@@ -3,12 +3,11 @@ package pl.pollub53.springBus.entity;
 import javax.persistence.*;
 import java.util.List;
 
-
 @Entity
 public class Bus {
     @Id
     @Column(name = "bus_id")
-    @GeneratedValue(strategy = GenerationType.AUTO) //id jest generowane automatycznie
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //id jest generowane automatycznie
     private long id;
     @Column(name = "bus_registration_number", nullable = false, length = 10)
     private String registration_number;
@@ -72,6 +71,5 @@ public class Bus {
                 ", czy dostępny = " + available +
                 '}';
     }
-
 
 }

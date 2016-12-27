@@ -3,21 +3,25 @@
 
 <head>
     <link data-require="bootstrap@*" data-semver="3.3.1" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" />
-    <script data-require="bootstrap@*" data-semver="3.3.1" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script data-require="bootstrap@*" data-semver="3.3.1" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="http://bootswatch.com/darkly/bootstrap.min.css" />
-    <script src="script.js"></script>
+    <!--<script src="script.js"></script>-->
 </head>
 
 <body>
 <div>
-    <form class="form-horizontal" th:object="${bus}" th:action="@{/bus/update/}" method="post">
-
-        <input type="hidden" th:field="*{id}"/>
+    <form class="form-horizontal" action="#" th:action="@{/bus/update}" th:object="${bus}"  method="post">
+        <!--<input type="hidden" th:field="*{id}" />-->
+        <div class="form-group row">
+            <label class="col-xs-2 control-label">ID:</label>
+            <div class="col-xs-4">
+                <input type="text" th:field="*{id}" />
+            </div>
+        </div>
         <div class="form-group row">
             <label class="col-xs-2 control-label">Rejestracja:</label>
             <div class="col-xs-4">
                 <input type="text" class="form-control" th:field="*{registration_number}"/>
-                <p th:if="${#fields.hasErrors('registration_number')}" th:errors="*{registration_number}">Title error message</p>
             </div>
         </div>
         <div class="form-group row">
