@@ -18,7 +18,7 @@ public class CompanyController {
     }
 
     @GetMapping("company/list")
-    public String List(Model model) {
+    public String list(Model model) {
         model.addAttribute("company", companyService.getCompanies());
         return "company/companies";
     }

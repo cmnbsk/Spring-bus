@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import pl.pollub53.springBus.domain.Bus;
 import pl.pollub53.springBus.services.BusService;
 
-//żeby sprawdzić, czy kontroler działa, trzeba zrobić widok (html&JavaScript)
-
 @Controller
 @SessionAttributes("bus")
 public class BusController {
@@ -73,5 +71,4 @@ public class BusController {
         busService.updateBus(bus);
         return "redirect:/bus/" + bus.getId();
     }
-
 }

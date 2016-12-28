@@ -19,7 +19,7 @@ public class CourseController {
     }
 
     @GetMapping("course/list")
-    public String List(Model model) {
+    public String list(Model model) {
         model.addAttribute("company", courseService.getCourses());
         return "course/courses";
     }

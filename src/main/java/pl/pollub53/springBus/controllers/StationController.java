@@ -18,7 +18,7 @@ public class StationController {
     }
 
     @GetMapping("station/list")
-    public String List(Model model) {
+    public String list(Model model) {
         model.addAttribute("station", stationService.getStations());
         return "station/stations";
     }
