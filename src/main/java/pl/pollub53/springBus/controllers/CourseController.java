@@ -18,8 +18,8 @@ public class CourseController {
         this.courseService = courseService;
     }
 
-    @GetMapping("/course/list")
-    public String List(Model model) {
+    @GetMapping("course/list")
+    public String list(Model model) {
         model.addAttribute("company", courseService.getCourses());
         return "course/courses";
     }

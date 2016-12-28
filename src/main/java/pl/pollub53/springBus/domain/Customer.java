@@ -9,15 +9,15 @@ public class Customer {
     @Column(name = "customer_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "customer_last_name", nullable = false, length = 45)
+    @Column(name = "customer_last_name", nullable = false)
     private String lastName;
-    @Column(name = "customer_first_name", nullable = false, length = 45)
+    @Column(name = "customer_first_name")
     private String firstName;
-    @Column(name = "customer_pesel", nullable = false, length = 11)
+    @Column(name = "customer_pesel")
     private String pesel;
-    @Column(name = "customer_email", length = 45)
+    @Column(name = "customer_email")
     private String email;
-    @Column(name = "customer_phone", nullable = false, length = 9)
+    @Column(name = "customer_phone")
     private String phone;
 
     @ManyToMany(mappedBy = "customers")
