@@ -21,7 +21,7 @@
         <div class="form-group row">
             <label class="col-xs-2 control-label">Trasa:</label>
             <div class="col-xs-4">
-                <input type="email" class="form-control" th:field="*{track}"/>
+                <input type="text" class="form-control" th:field="*{track}"/>
             </div>
         </div>
         <div class="form-group row">
@@ -37,9 +37,15 @@
             </div>
         </div>
         <div class="row">
-            <button type="submit" class="btn btn-default">Dodaj</button>
+            <button type="submit" class="btn btn-default" style="background-color: cornflowerblue">Dodaj</button>
+            <a href="/bus/list" th:href="@{/course/list}" class="btn btn-default"
+               style="background-color: olivedrab">Pokaż</a>
         </div>
     </form>
+    <p></p>
+    <div th:if="${not #lists.isEmpty(course.track)}">
+        <p th:text="'Dodano kurs: ' + ${course}"></p>
+    </div>
 </div>
 </body>
 
