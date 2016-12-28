@@ -1,23 +1,25 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Autobusy heh</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!--bootstrap-->
-    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
-          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
-          rel="stylesheet" media="screen" />
+    <link data-require="bootstrap@*" data-semver="3.3.1" rel="stylesheet"
+          href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
+          integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi"/>
+    <script data-require="bootstrap@*" data-semver="3.3.1"
+            src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://bootswatch.com/darkly/bootstrap.min.css"/>
+    <script src="script.js"></script>
 </head>
 <body>
 <div class="containter">
     <div th:if="${not #lists.isEmpty(bus)}">
         <h2>Lista autobusów</h2>
-        <table class="table table-striped">
+        <table class="table table-bordered table-striped">
             <tr>
                 <th>ID</th>
                 <th>Nr rejestracyjny</th>
                 <th>czy dostępny</th>
                 <th>wolne miejsca</th>
+                <th>udogodnienia</th>
             </tr>
             <tr th:each="key : ${bus}">
                 <td th:text="${key.id}"><a href="/bus/${bus.id}">ID</a></td>
@@ -27,6 +29,10 @@
                 <td th:text="${key.features}">udogodnienia</td>
             </tr>
         </table>
+    </div>
+    <div class="row">
+        <a href="/bus/list" th:href="@{/bus/new}" class="btn btn-default"
+           style="background-color: crimson; margin-left: 2%">Nowy</a>
     </div>
 </div>
 </body>

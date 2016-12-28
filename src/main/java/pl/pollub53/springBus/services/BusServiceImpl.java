@@ -3,7 +3,7 @@ package pl.pollub53.springBus.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.pollub53.springBus.entity.Bus;
+import pl.pollub53.springBus.domain.Bus;
 import pl.pollub53.springBus.repositories.BusRepository;
 
 import javax.persistence.NoResultException;

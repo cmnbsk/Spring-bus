@@ -1,4 +1,4 @@
-package pl.pollub53.springBus.entity;
+package pl.pollub53.springBus.domain;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,12 +15,6 @@ public class Station {
     @ManyToMany(mappedBy = "stations")
     private List<Bus> buses;
 
-    protected Station() {
-    }
-
-    public Station(String name) {
-        this.name = name;
-    }
 
     public long getId() {
         return id;

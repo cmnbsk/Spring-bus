@@ -10,7 +10,7 @@
 
 <body>
 <div>
-    <form class="form-horizontal" th:object="${bus}" th:action="@{/bus/save/}" method="post">
+    <form class="form-horizontal" style="padding: 3%" th:object="${bus}" th:action="@{/bus/save/}" method="post">
 
         <input type="hidden" th:field="*{id}"/>
         <div class="form-group row">
@@ -39,7 +39,9 @@
             </div>
         </div>
         <div class="row">
-            <button type="submit" class="btn btn-default">Dodaj</button>
+            <button type="submit" class="btn btn-default" style="background-color: cornflowerblue">Dodaj</button>
+            <a href="/bus/list" th:href="@{/bus/list}" class="btn btn-default"
+               style="background-color: olivedrab">Pokaż</a>
         </div>
     </form>
     <p></p>

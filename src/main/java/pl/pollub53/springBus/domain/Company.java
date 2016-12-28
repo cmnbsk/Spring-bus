@@ -1,4 +1,4 @@
-package pl.pollub53.springBus.entity;
+package pl.pollub53.springBus.domain;
 
 import javax.persistence.*;
 import java.util.List;
