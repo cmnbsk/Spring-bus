@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+import pl.pollub53.springBus.domain.User;
+import pl.pollub53.springBus.services.UserService;
 
 @Component
 public class UserValidator implements Validator {
