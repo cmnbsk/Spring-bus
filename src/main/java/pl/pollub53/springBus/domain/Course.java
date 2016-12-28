@@ -1,8 +1,6 @@
 package pl.pollub53.springBus.domain;
 
 import javax.persistence.*;
-import java.sql.Time;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -16,9 +14,9 @@ public class Course {
     @Column(name = "course_track", nullable = false, length = 45)
     private String track;
     @Column(name = "course_date", nullable = false)
-    private Date date;
+    private String date;
     @Column(name = "course_time", nullable = false)
-    private Time time;
+    private String time;
 
     //wiele kursów może mieć jeden autobus (np. autobus o nr rej. LU 25884 może jeździć z Warszawy do Krakowa lub z Lublina do Gdańska)
     @ManyToOne
@@ -58,19 +56,19 @@ public class Course {
         this.track = track;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public Time getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
