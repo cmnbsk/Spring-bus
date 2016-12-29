@@ -38,7 +38,7 @@ public class StationController {
     @GetMapping("station/{id}")
     public String showStation(@PathVariable long id, Model model) {
         model.addAttribute("station", stationService.getStationById(id));
-        return "station,stationform";
+        return "station/stationform";
     }
 
     @GetMapping("station/edit/{id}")
