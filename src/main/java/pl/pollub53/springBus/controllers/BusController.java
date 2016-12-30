@@ -17,25 +17,18 @@ public class BusController {
         this.busService = busService;
     }
 
-    /*na stronie /buses ma wyświetlić się lista autobusów
-
-      metoda get - do pobierania danych z serwera */
     @RequestMapping(value = "/bus/list", method = RequestMethod.GET) //get jest domyslnie
     public String list(Model model) {
-
-        //wykorzystuję metodę getBuses() z repozytorium
         model.addAttribute("bus", busService.getBuses());
         return "bus/buses";
     }
 
-    //po przejściu do odnośnika z RequestMapping() wywoływana jest metoda
     @RequestMapping("bus/{id}")
     public String showBus(@PathVariable long id, Model model) {
         model.addAttribute("bus", busService.getBusById(id));
         return "bus/busform";
     }
 
-    //PathVariable jest to zmienna pobrana ze ścieżki HTTP
     @RequestMapping("bus/edit/{id}")
     public String edit(@PathVariable long id, Model model) {
         Bus bus = busService.getBusById(id);
@@ -66,9 +59,9 @@ public class BusController {
     }
 
     //tego nie używamy na razie
-    @PostMapping(value = "bus/update")
+    /*@PostMapping(value = "bus/update")
     public String updateBus(@ModelAttribute("bus") Bus bus ) {
         busService.updateBus(bus);
         return "redirect:/bus/" + bus.getId();
-    }
+    }*/
 }

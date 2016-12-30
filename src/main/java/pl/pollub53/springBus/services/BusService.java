@@ -8,15 +8,12 @@ public interface BusService {
     //weź listę wszystkich autobusów
     List<Bus> getBuses();
 
-    //weź autobus po id
     Bus getBusById(long id);
 
-    //zapisz autobus
     Bus saveBus(Bus bus);
 
-    //usuń autobus
     void deleteBus(long id);
 
-    //update autobus
-    Bus updateBus(Bus bus);
+    //nieużywane
+    //Bus updateBus(Bus bus);
 }
