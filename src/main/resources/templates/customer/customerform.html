@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link data-require="bootstrap@*" data-semver="3.3.1" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" />
+    <script data-require="bootstrap@*" data-semver="3.3.1" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://bootswatch.com/darkly/bootstrap.min.css" />
+    <script src="script.js"></script>
+</head>
+
+<body>
+<div>
+    <form class="form-horizontal" th:object="${customer}" th:action="@{/customer/save/}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <div class="form-group row">
+            <label class="col-xs-2 control-label">Imię:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" th:field="*{firstName}"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-xs-2 control-label">Nazwisko:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" th:field="*{lastName}"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-xs-2 control-label">PESEL:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" th:field="*{pesel}"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-xs-2 control-label">E-mail:</label>
+            <div class="col-xs-4">
+                <input type="email" class="form-control" th:field="*{email}"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-xs-2 control-label">Telefon:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" th:field="*{phone}"/>
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" class="btn btn-default" style="background-color: cornflowerblue">Dodaj</button>
+            <a href="/bus/list" th:href="@{/customer/list}" class="btn btn-default"
+               style="background-color: olivedrab">Pokaż</a>
+        </div>
+    </form>
+    <p></p>
+    <div th:if="${not #lists.isEmpty(customer.firstName)}">
+        <p th:text="'Dodano kurs: ' + ${customer}"></p>
+    </div>
+</div>
+</body>
+
+</html>
