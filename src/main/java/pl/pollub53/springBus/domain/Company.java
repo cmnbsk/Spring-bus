@@ -1,4 +1,4 @@
-package pl.pollub53.springBus.entity;
+package pl.pollub53.springBus.domain;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,7 +11,7 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Column(name = "company_name", nullable = false, length = 45)
-    private long name;
+    private String name;
     @Column(name = "company_email", nullable = false, length = 45)
     private String email;
     @Column(name = "company_website", length = 30)
@@ -32,11 +32,11 @@ public class Company {
         return id;
     }
 
-    public long getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(long name) {
+    public void setName(String name) {
         this.name = name;
     }
 

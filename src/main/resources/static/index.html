@@ -1,21 +1,52 @@
 <!DOCTYPE HTML>
-<html>
+<html data-ng-app="Spring-bus"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="http://bootswatch.com/darkly/bootstrap.min.css">
+    <script src="js/controller.js"></script>
 </head>
 <body>
-<div class="container">
-    <div class="jumbotron">
-        <h1>Gratulacje!</h1>
-        <h3>Zostałeś wylosowany jako szczęśliwy zwycięzca z 794 320 uczestników naszej świątecznej loterii.</h3>
-        <h3>Odbierz swoją nagrodę główną <a href="/greeting">tutaj</a>.</h3>
-        <p>Jeśli jesteś developerem kliknij <a href="/greeting?name=progrmisto">tutaj</a>.</p>
-        <p>Jeśli chcesz przejść przez ukryte drzwi kliknij <a href="/tajne-drzwi">tutaj</a>.</p>
-    </div>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+        <li>
+            <button ng-click="addBus()" class="btn btn-primary">Bus</button>
+        </li>
+        <li>
+            <button ng-click="addCompany()" class="btn btn-primary">Company</button>
+        </li>
+        <li>
+            <button ng-click="addCourse()" class="btn btn-primary">Course</button>
+        </li>
+        <li>
+            <button ng-click="addCustomer()" class="btn btn-primary">Customer</button>
+        </li>
+        <li>
+            <button ng-click="addStation()" class="btn btn-primary">Station</button>
+        </li>
+    </ul>
+</div>
+<div data-ng-controller="busController" class="container-fluid text-center">
+    <h1>Gratulacje!</h1>
+    <h3>Zostałeś wylosowany jako szczęśliwy zwycięzca z 794 320 uczestników naszej świątecznej loterii.</h3>
+    <h3>Odbierz swoją nagrodę główną <a href="/greeting">tutaj</a>.</h3>
+    <p>Jeśli jesteś developerem kliknij <a href="/greeting?name=progrmisto">tutaj</a>.</p>
+    <p>Jeśli chcesz przejść przez ukryte drzwi kliknij <a href="/tajne-drzwi">tutaj</a>.</p>
+</div>
+<div>
+    <row>
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </row>
 </div>
 </body>
-
-
-
 </html>

@@ -20,7 +20,6 @@ public class Application {
 //        for (String beanName : beanNames) {
 //            System.out.println(beanName);
 //        }
-        System.out.println("protip: wpisz w przegladarke localhost:8080/tajne-drzwi");
+        //System.out.println("protip: wpisz w przegladarke localhost:8080/tajne-drzwi");
     }
-
 }

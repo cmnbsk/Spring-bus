@@ -10,43 +10,47 @@
 
 <body>
 <div>
-    <form class="form-horizontal" style="padding: 3%" th:object="${bus}" th:action="@{/bus/save/}" method="post">
-
+    <form class="form-horizontal" th:object="${customer}" th:action="@{/customer/save/}" method="post">
         <input type="hidden" th:field="*{id}"/>
         <div class="form-group row">
-            <label class="col-xs-2 control-label">Rejestracja:</label>
+            <label class="col-xs-2 control-label">Imię:</label>
             <div class="col-xs-4">
-                <input type="text" class="form-control" th:field="*{registration_number}"/>
-                <p th:if="${#fields.hasErrors('registration_number')}" th:errors="*{registration_number}">Title error message</p>
+                <input type="text" class="form-control" th:field="*{firstName}"/>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-xs-2 control-label">Stan:</label>
+            <label class="col-xs-2 control-label">Nazwisko:</label>
             <div class="col-xs-4">
-                <input type="checkbox" class="form-control" th:field="*{available}" />
+                <input type="text" class="form-control" th:field="*{lastName}"/>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-xs-2 control-label">Miejsca:</label>
+            <label class="col-xs-2 control-label">PESEL:</label>
             <div class="col-xs-4">
-                <input type="text" class="form-control" th:field="*{free_seats}"/>
+                <input type="text" class="form-control" th:field="*{pesel}"/>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-xs-2 control-label">Udogodnienia:</label>
+            <label class="col-xs-2 control-label">E-mail:</label>
             <div class="col-xs-4">
-                <input type="text" class="form-control" th:field="*{features}"/>
+                <input type="email" class="form-control" th:field="*{email}"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-xs-2 control-label">Telefon:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" th:field="*{phone}"/>
             </div>
         </div>
         <div class="row">
             <button type="submit" class="btn btn-default" style="background-color: cornflowerblue">Dodaj</button>
-            <a href="/bus/list" th:href="@{/bus/list}" class="btn btn-default"
+            <a href="/bus/list" th:href="@{/customer/list}" class="btn btn-default"
                style="background-color: olivedrab">Pokaż</a>
         </div>
     </form>
     <p></p>
-    <div th:if="${not #lists.isEmpty(bus.registration_number)}">
-        <p th:text="'Dodano autobus: ' + ${bus}"></p>
+    <div th:if="${not #lists.isEmpty(customer.firstName)}">
+        <p th:text="'Dodano kurs: ' + ${customer}"></p>
     </div>
 </div>
 </body>

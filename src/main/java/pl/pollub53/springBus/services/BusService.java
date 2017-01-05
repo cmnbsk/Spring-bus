@@ -1,17 +1,19 @@
 package pl.pollub53.springBus.services;
 
-import pl.pollub53.springBus.entity.Bus;
+import pl.pollub53.springBus.domain.Bus;
+
+import java.util.List;
 
 public interface BusService {
     //weź listę wszystkich autobusów
-    Iterable<Bus> getBuses();
+    List<Bus> getBuses();
 
-    //weź autobus po id
     Bus getBusById(long id);
 
-    //zapisz autobus
     Bus saveBus(Bus bus);
 
-    //usuń autobus
     void deleteBus(long id);
+
+    //nieużywane
+    //Bus updateBus(Bus bus);
 }

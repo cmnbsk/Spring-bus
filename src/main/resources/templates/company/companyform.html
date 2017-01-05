@@ -10,43 +10,42 @@
 
 <body>
 <div>
-    <form class="form-horizontal" style="padding: 3%" th:object="${bus}" th:action="@{/bus/save/}" method="post">
+    <form class="form-horizontal" style="padding: 3%" th:object="${company}" th:action="@{/company/save/}" method="post">
 
         <input type="hidden" th:field="*{id}"/>
         <div class="form-group row">
-            <label class="col-xs-2 control-label">Rejestracja:</label>
+            <label class="col-xs-2 control-label">Nazwa:</label>
             <div class="col-xs-4">
-                <input type="text" class="form-control" th:field="*{registration_number}"/>
-                <p th:if="${#fields.hasErrors('registration_number')}" th:errors="*{registration_number}">Title error message</p>
+                <input type="text" class="form-control" th:field="*{name}"/>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-xs-2 control-label">Stan:</label>
+            <label class="col-xs-2 control-label">E-mail:</label>
             <div class="col-xs-4">
-                <input type="checkbox" class="form-control" th:field="*{available}" />
+                <input type="text" class="form-control" th:field="*{email}" />
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-xs-2 control-label">Miejsca:</label>
+            <label class="col-xs-2 control-label">Telefon:</label>
             <div class="col-xs-4">
-                <input type="text" class="form-control" th:field="*{free_seats}"/>
+                <input type="text" class="form-control" th:field="*{phone}" />
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-xs-2 control-label">Udogodnienia:</label>
+            <label class="col-xs-2 control-label">Strona internetowa:</label>
             <div class="col-xs-4">
-                <input type="text" class="form-control" th:field="*{features}"/>
+                <input type="text" class="form-control" th:field="*{website}"/>
             </div>
         </div>
         <div class="row">
             <button type="submit" class="btn btn-default" style="background-color: cornflowerblue">Dodaj</button>
-            <a href="/bus/list" th:href="@{/bus/list}" class="btn btn-default"
+            <a href="/company/list" th:href="@{/company/list}" class="btn btn-default"
                style="background-color: olivedrab">Pokaż</a>
         </div>
     </form>
     <p></p>
-    <div th:if="${not #lists.isEmpty(bus.registration_number)}">
-        <p th:text="'Dodano autobus: ' + ${bus}"></p>
+    <div th:if="${not #lists.isEmpty(company.name)}">
+        <p th:text="'Dodano firmę: ' + ${company}"></p>
     </div>
 </div>
 </body>

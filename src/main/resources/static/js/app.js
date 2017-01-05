@@ -1,13 +1,25 @@
-var app = angular.module('app', ['ngRoute','ngResource']);
+var app = angular.module('Spring-bus', ["ngRoute"]);
 app.config(function($routeProvider){
     $routeProvider
-        .when('/users',{
-            templateUrl: '/views/users.html',
-            controller: 'usersController'
+        .when('/busform',{
+            templateUrl: '/bus.html',
+            controller: 'busController'
         })
-        .when('/roles',{
-            templateUrl: '/views/roles.html',
-            controller: 'rolesController'
+        .when('/companyform',{
+            templateUrl: '/company.html',
+            controller: 'companyController'
+        })
+        .when('/courseform',{
+            templateUrl: '/course.html',
+            controller: 'courseController'
+        })
+        .when('/customerform',{
+            templateUrl: '/customer.html',
+            controller: 'customerController'
+        })
+        .when('/stationform',{
+            templateUrl: '/station.html',
+            controller: 'stationController'
         })
         .otherwise(
             { redirectTo: '/'}

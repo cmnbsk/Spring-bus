@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link data-require="bootstrap@*" data-semver="3.3.1" rel="stylesheet"
+          href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
+          integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi"/>
+    <script data-require="bootstrap@*" data-semver="3.3.1"
+            src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://bootswatch.com/darkly/bootstrap.min.css"/>
+    <script src="script.js"></script>
+</head>
+<body>
+<div class="containter">
+    <div th:if="${not #lists.isEmpty(course)}">
+        <h2>Rozkład</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Cena</th>
+                <th>Trasa</th>
+                <th>Data odjazdu</th>
+                <th>Godzina odjazdu</th>
+            </tr>
+            <tr th:each="key : ${course}">
+                <td th:text="${key.id}"><a href="/course/${course.id}">ID</a></td>
+                <td th:text="${key.price}">Cena</td>
+                <td th:text="${key.track}">Trasa</td>
+                <td th:text="${key.date}">Data odjazdu</td>
+                <td th:text="${key.time}">Godzina odjazdu</td>
+            </tr>
+        </table>
+        <div class="row">
+            <a href="/course/list" th:href="@{/course/new}" class="btn btn-default"
+               style="background-color: crimson; margin-left: 2%">Nowy</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
