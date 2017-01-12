@@ -58,13 +58,14 @@ dependencies {
 
     compile('org.springframework.boot:spring-boot-starter-security')
 
-    //dependency for SpringSecurity - login and register
-    compile group: 'org.hsqldb', name: 'hsqldb', version: '2.0.0'
-    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+    //security
+    compile group: 'org.hsqldb', name: 'hsqldb', version: '2.3.4'
+    compile group: 'jstl', name: 'jstl', version: '1.2'
 
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("junit:junit")
 
-
+    //
+    compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '1.3.0.RELEASE'
 }

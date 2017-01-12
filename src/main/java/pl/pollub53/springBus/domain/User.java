@@ -1,19 +1,23 @@
 package pl.pollub53.springBus.domain;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
-@Table(name = "\"User\"")
+@Table(name = "users")
 public class User {
-    private Long id;
-    private String username;
-    private String password;
-    private String passwordConfirm;
-    private Set<Role> roles;
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(nullable = false, length = 30, unique = true)
+    private String username;
+    @Column(length = 60)
+    private String passwordHash;
+    @Column(length = 100)
+    private String fullName;
+
+    @OneToMany(mappedBy = "author")
+
+
     public Long getId() {
         return id;
     }
@@ -30,30 +34,44 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 
-    @Transient
-    public String getPasswordConfirm() {
-        return passwordConfirm;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setPasswordConfirm(String passwordConfirm) {
-        this.passwordConfirm = passwordConfirm;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    @ManyToMany
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    public Set<Role> getRoles() {
-        return roles;
+
+    public User() {
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public User(String username, String fullName) {
+        this.username = username;
+        this.fullName = fullName;
+    }
+
+    public User(Long id, String username, String fullName) {
+        this.id = id;
+        this.username = username;
+        this.fullName = fullName;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", passwordHash='" + passwordHash + '\'' +
+                ", fullName='" + fullName + '\'' +
+                '}';
     }
 }

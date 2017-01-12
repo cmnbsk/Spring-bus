@@ -2,8 +2,18 @@ package pl.pollub53.springBus.services;
 
 import pl.pollub53.springBus.domain.User;
 
-public interface UserService {
-    void save(User user);
+import java.util.List;
 
-    User findByUsername(String username);
+public interface UserService {
+    List<User> findAll();
+
+    User findById(Long id);
+
+    User create(User user);
+
+    User edit(User user);
+
+    void deleteById(Long id);
+
+    boolean authenticate(String username, String password);
 }

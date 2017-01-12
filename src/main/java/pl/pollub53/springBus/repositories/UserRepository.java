@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import pl.pollub53.springBus.domain.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    User findByUsername(String username);
+
 }
