@@ -31,11 +31,11 @@ public class LoginController {
             return "/login";
         }
 
-        if (!userService.authenticate(
-                loginForm.getUsername(), loginForm.getPassword())) {
-
-            return "/login";
-        }
+//        if (!userService.authenticate(
+//                loginForm.getUsername(), loginForm.getPassword())) {
+//
+//            return "/login";
+//        }
 
 
         return "redirect:/";

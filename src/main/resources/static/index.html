@@ -53,6 +53,15 @@
 
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <div id="miga">
+
+        <div sec:authorize="isAuthenticated()">
+            LOGGED <span sec:authentication="name">nieznajomy</span>
+            Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
+        </div>
+        <div sec:authorize="isAnonymous()">
+            ANONYMOUS
+        </div>
+
         <h1 style="text-align: center">Gratulacje!</h1>
 
         <h3>Zostałeś wylosowany jako szczęśliwy zwycięzca z 794 320 uczestników naszej świątecznej loterii.</h3>
@@ -67,13 +76,6 @@
     <p>Jeśli chcesz przejść przez ukryte drzwi kliknij <a href="/tajne-drzwi">tutaj</a>.</p>
 </div>
 
-<!--<div>
-    <row>
-        <h1 th:inline="text">Hello <!--[[${#httpServletRequest.remoteUser}]]! </h1>
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Wyloguj się"/>
-        </form>
-    </row>
-</div>-->
+
 </body>
 </html>
