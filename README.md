@@ -1,3 +1,5 @@
+To jest aplikacja tworzona przez grupę studentów w celach nauki frameworka Spring.
+
 Żeby uruchomić należy wpisać w cmd:
 
 _gradlew build_ -kompilacja przez gradle

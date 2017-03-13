@@ -49,19 +49,19 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-jdbc')
     //Microsoft Sql server driver
     compile('com.microsoft.sqlserver:sqljdbc4:4.0')
-
     runtime('mysql:mysql-connector-java')
 
     //Angular + bootstrap
     compile('org.webjars:angularjs:1.6.0')
     compile('org.webjars:bootstrap:3.3.7-1')
 
+    //security
+    compile group: 'org.hsqldb', name: 'hsqldb', version: '2.3.4' //SQL db
+    compile group: 'jstl', name: 'jstl', version: '1.2'  //JSP library
     compile('org.springframework.boot:spring-boot-starter-security')
-
-    //dependency for SpringSecurity - login and register
-    compile group: 'org.hsqldb', name: 'hsqldb', version: '2.0.0'
-    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
-
+    // https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity4
+    compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity4', version: '2.1.2.RELEASE'
+    //compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4')
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("junit:junit")
